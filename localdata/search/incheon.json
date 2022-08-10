@@ -1,0 +1,40 @@
+[
+  {
+    "clubAdmin": "test@naver.com",
+    "clubCreateTime": "2022-05-10T09:12:07.000Z",
+    "clubDescription": "인천이요",
+    "clubImg": "",
+    "clubName": "인천이다 동호회요",
+    "clubSports": 1,
+    "clubSi": "28",
+    "clubGu": "28140",
+    "clubGun": null,
+    "adminUid": "",
+    "clubSiDescription": "인천광역시",
+    "clubGuDescription": "계양구",
+    "clubGunDescription": null,
+    "clubAdminName": "인천계양구에살아요",
+    "memberCount": "402",
+    "clubKey": "",
+    "creClubTime": "20220410061207"
+  },
+  {
+    "clubAdmin": "test111@naver.com",
+    "clubCreateTime": "2022-05-10T09:12:07.000Z",
+    "clubDescription": "하이야",
+    "clubImg": "",
+    "clubName": "검단에서 농구한다",
+    "clubSports": 1,
+    "clubSi": "28",
+    "clubGu": "28140",
+    "clubGun": null,
+    "adminUid": "",
+    "clubSiDescription": "인천광역시",
+    "clubGuDescription": "서구",
+    "clubGunDescription": null,
+    "clubAdminName": "검단서구동호회장",
+    "memberCount": "402",
+    "clubKey": "",
+    "creClubTime": "20220510061207"
+  }
+]

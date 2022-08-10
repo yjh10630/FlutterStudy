@@ -1,0 +1,127 @@
+[
+  {
+    "category": "notify",
+    "title": "공지사항이요공지사항이요공지사항이요공지사항이요공지사항이요공지사항이요공지사항이요공지사항이요공지사항이요",
+    "detail": "공지사항이요공지사항이요공지사항이요공지사항이요공지사항이요공지사항이요공지사항이요공지사항이요공지사항이요공지사항이요공지사항이요공지사항이요공지사항이요공지사항이요공지사항이요공지사항이요공지사항이요공지사항이요공지사항이요공지사항이요공지사항이요공지사항이요공지사항이요공지사항이요",
+    "writeUserInfo" : {
+      "userImg": "https://source.unsplash.com/random",
+      "userName": "모임장이요"
+    },
+    "reviewCount": "11",
+    "createTime": "20220711133000",
+    "isPick": false,
+    "pickCount": "20",
+    "viewCount": "22"
+  },
+  {
+    "category": "board",
+    "title": "여기 농구장 아직도 있는지 가보신분 ?? ",
+    "detail": "농구장 이써여 ?\n농구장 이써여 ?\n농구장 이써여 ?농구장 이써여 ?농구장 이써여 ?농구장 이써여 ? ",
+    "writeUserInfo" : {
+      "userImg": "https://source.unsplash.com/random",
+      "userName": "궁금남"
+    },
+    "reviewCount": "11",
+    "photo": [
+      "https://picsum.photos/200"
+    ],
+    "createTime": "20220712133000",
+    "isPick": false,
+    "pickCount": "1",
+    "viewCount": "22"
+  },
+  {
+    "category": "board",
+    "title": "같이 넝구해여 심심함",
+    "detail": "심심함 ",
+    "writeUserInfo" : {
+      "userImg": "https://source.unsplash.com/random",
+      "userName": "궁궁궁"
+    },
+    "reviewCount": "15",
+    "photo": [
+      "https://source.unsplash.com/random",
+      "https://source.unsplash.com/random"
+    ],
+    "createTime": "20220713133000",
+    "isPick": false,
+    "pickCount": "5",
+    "viewCount": "22"
+  },
+  {
+    "category": "board",
+    "title": "여기 농구장 아직도 있는지 가보신분 ?? ",
+    "detail": "농구장 이써여 ? ",
+    "writeUserInfo" : {
+      "userImg": "https://source.unsplash.com/random",
+      "userName": "궁금남"
+    },
+    "reviewCount": "11",
+    "photo": [
+      "https://source.unsplash.com/random",
+      "https://source.unsplash.com/random",
+      "https://source.unsplash.com/random"
+    ],
+    "createTime": "20220716133000",
+    "isPick": false,
+    "pickCount": "0",
+    "viewCount": "22"
+  },
+  {
+    "category": "board",
+    "title": "같이 넝구해여 심심함",
+    "detail": "심심함 ",
+    "writeUserInfo" : {
+      "userImg": "https://source.unsplash.com/random",
+      "userName": "궁궁궁"
+    },
+    "reviewCount": "15",
+    "photo": [
+      "https://source.unsplash.com/random",
+      "https://source.unsplash.com/random",
+      "https://source.unsplash.com/random"
+    ],
+    "createTime": "20220718133000",
+    "isPick": false,
+    "pickCount": "0",
+    "viewCount": "22"
+  },
+  {
+    "category": "board",
+    "title": "여기 농구장 아직도 있는지 가보신분 ?? ",
+    "detail": "농구장 이써여 ? ",
+    "writeUserInfo" : {
+      "userImg": "https://source.unsplash.com/random",
+      "userName": "궁금남"
+    },
+    "reviewCount": "11",
+    "photo": [
+      "https://source.unsplash.com/random",
+      "https://source.unsplash.com/random",
+      "https://source.unsplash.com/random"
+    ],
+    "createTime": "20220720133000",
+    "isPick": false,
+    "pickCount": "0",
+    "viewCount": "22"
+  },
+  {
+    "category": "board",
+    "title": "같이 넝구해여 심심함",
+    "detail": "심심함 ",
+    "writeUserInfo" : {
+      "userImg": "https://source.unsplash.com/random",
+      "userName": "궁궁궁"
+    },
+    "reviewCount": "15",
+    "photo": [
+      "https://source.unsplash.com/random",
+      "https://source.unsplash.com/random",
+      "https://source.unsplash.com/random"
+    ],
+    "createTime": "20220722133000",
+    "isPick": false,
+    "pickCount": "0",
+    "viewCount": "22"
+  }
+]

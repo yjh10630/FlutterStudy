@@ -1,0 +1,39 @@
+[
+  {
+    "category": "group",
+    "title": "서운동장 농구한겜?",
+    "detail": "서운동장 농구한겜?서운동장 농구한겜?",
+    "maxCount": "5",
+    "attendCount": "2",
+    "date": "20220812",
+    "time": "1330",
+    "location": "인천광역시 계양구 작전서운동 110-33",
+    "writeUserInfo" : {
+      "userImg": "https://source.unsplash.com/random",
+      "userName": "인천남"
+    },
+    "createTime": "20220811133000",
+    "isPick": false,
+    "pickCount": "1",
+    "viewCount": "22"
+  },
+  {
+    "category": "board",
+    "title": "여기 농구장 아직도 있는지 가보신분 ?? ",
+    "detail": "농구장 이써여 ? ",
+    "writeUserInfo" : {
+      "userImg": "https://source.unsplash.com/random",
+      "userName": "궁금남"
+    },
+    "reviewCount": "11",
+    "photo": [
+      "https://source.unsplash.com/random",
+      "https://source.unsplash.com/random",
+      "https://source.unsplash.com/random"
+    ],
+    "createTime": "20220811133000",
+    "isPick": false,
+    "pickCount": "5",
+    "viewCount": "22"
+  }
+]
