@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:study_flutter/search_page.dart';
-import 'ex_list.dart';
-import 'ex_list2.dart';
 import 'utils/color_palette.dart';
 
 class MainPage extends StatefulWidget {
@@ -258,22 +255,64 @@ class _DraggableSearchableListViewState
                       borderRadius: BorderRadius.only(topLeft: Radius.circular(20), topRight: Radius.circular(20))
                   ),
                   child: ListView.builder(
+                    keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
                     controller: scrollController,
                     itemCount: 100 + 1,
                     itemBuilder: (BuildContext context, int index) {
                       if (index == 0) {
-                        return Align(
-                          alignment: Alignment.center,
-                          child: Padding(
-                            padding: const EdgeInsets.only(top: 16.0, left: 24.0, right: 24.0, bottom: 24),
-                            child: Container(
-                              width: 50,
-                              height: 5,
-                              decoration: const BoxDecoration(
-                                  color: Palette.colorDividers,
-                                  borderRadius: BorderRadius.all(Radius.circular(15.0))
+                        return SizedBox(
+                          height: 60,
+                          child: Stack(
+                            children: [
+                              Align(
+                                alignment: Alignment.topCenter,
+                                child: Padding(
+                                  padding: const EdgeInsets.only(top: 10.0, left: 24.0, right: 24.0, bottom: 24),
+                                  child: Container(
+                                    width: 50,
+                                    height: 5,
+                                    decoration: const BoxDecoration(
+                                        color: Palette.colorDividers,
+                                        borderRadius: BorderRadius.all(Radius.circular(15.0))
+                                    ),
+                                  ),
+                                ),
                               ),
-                            ),
+                              Align(
+                                alignment: Alignment.topLeft,
+                                child: Padding(
+                                  padding: const EdgeInsets.only(top: 15.0, left: 12.0),
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(12),
+                                    child: Stack(
+                                      children: [
+                                          Padding(
+                                            padding: const EdgeInsets.all(12),
+                                            child: Wrap(
+                                              crossAxisAlignment: WrapCrossAlignment.center,
+                                              children: [
+                                                Text('TEST',
+                                                style: const TextStyle(
+                                                  fontSize: 16,
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Colors.black54
+                                                ),),
+                                                const Icon(Icons.keyboard_arrow_down_rounded, size: 20, color: Colors.black54,)
+                                              ],
+                                            ),
+                                          ),
+                                        Positioned.fill(child: Material(
+                                          color: Colors.transparent,
+                                          child: InkWell(
+                                            onTap: () {},
+                                          ),
+                                        ))
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              )
+                            ],
                           ),
                         );
                       }
@@ -294,14 +333,16 @@ class _DraggableSearchableListViewState
                   builder: (context, value, child) {
                     return value ? Container(
                       decoration: BoxDecoration(
-                        border: Border(
-                          bottom: BorderSide(
-                              width: 1.0,
-                              color: Theme.of(context).dividerColor),
-                        ),
+                        boxShadow: const <BoxShadow>[
+                          BoxShadow(
+                              color: Colors.black54,
+                              blurRadius: 15.0,
+                              offset: Offset(0.0, 0.75)
+                          )
+                        ],
                         color: Theme.of(context).colorScheme.surface,
                       ),
-                      child: SearchBar(
+                      child: BoardBar(
                         onClose: () {
                           searchFieldVisibility.value = false;
                           DraggableScrollableActuator.reset(context);
@@ -317,41 +358,231 @@ class _DraggableSearchableListViewState
   }
 }
 
-class SearchBar extends StatelessWidget {
-  final VoidCallback onClose;
-
-  const SearchBar({
+class BoardBar extends StatefulWidget {
+  const BoardBar({
     Key? key,
     required this.onClose,
   }) : super(key: key);
+  final VoidCallback onClose;
+
+  @override
+  _BoardBarState createState() => _BoardBarState();
+}
+
+class _BoardBarState extends State<BoardBar> {
+
+  int _widgetId = 1;
+  bool _isShowTxtClearBtn = false;
+  late TextEditingController _editingController;
+
+  @override
+  void initState() {
+    super.initState();
+    _editingController = TextEditingController();
+    _editingController.addListener(() {
+      setState(() {
+        _isShowTxtClearBtn = _editingController.text.isNotEmpty;
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    _editingController.dispose();
+    super.dispose();
+  }
+
+  Widget _searchIcon() {
+    return Align(
+      alignment: Alignment.centerRight,
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(12),
+        child: Stack(
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12)
+              ),
+              padding: const EdgeInsets.all(12),
+              child: const Icon(
+                Icons.search_rounded,
+                color: Colors.black54,
+              ),
+            ),
+            Positioned.fill(child: Material(
+              color: Colors.transparent,
+              child: InkWell(
+                onTap: () {
+                  _updateWidget();
+                },
+              ),
+            ))
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget? _getClearBtn() {
+    if (!_isShowTxtClearBtn) { return null; }
+    return IconButton(onPressed: () {
+      _editingController.clear();
+    }, icon: const Icon(Icons.clear, color: Palette.colorPrimaryIcon,));
+  }
+
+  Widget _textField() {
+    return Row(
+      key: Key('textField'),
+      children: [
+        Expanded(
+          child: Padding(
+            padding: const EdgeInsets.only(top: 7, bottom: 7, left: 16, right: 4),
+            child: TextFormField(
+              controller: _editingController,
+              keyboardType: TextInputType.text,
+              cursorColor: Colors.black45,
+              cursorWidth: 1.5,
+              style: const TextStyle(color: Colors.black87),
+              decoration: InputDecoration(
+                  contentPadding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: const BorderSide(color: Colors.white, width: 0.0),
+                    borderRadius: BorderRadius.circular(25.0),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: const BorderSide(color: Colors.white, width: 0.0),
+                    borderRadius: BorderRadius.circular(25.0),
+                  ),
+                  errorBorder: OutlineInputBorder(
+                    borderSide: const BorderSide(color: Colors.white, width: 0.0),
+                    borderRadius: BorderRadius.circular(25.0),
+                  ),
+                  filled: true,
+                  fillColor: Colors.white,
+                  hintText: '검색어를 입력하세요.',
+                  suffixIcon: _getClearBtn(),
+                  hintStyle: const TextStyle(color: Colors.black26,),
+                  prefixIcon: const Icon(
+                    Icons.search,
+                    color: Colors.black26,
+                  )
+              ),
+            ),
+          ),
+        ),
+        ClipRRect(
+          borderRadius: BorderRadius.circular(12),
+          child: Stack(
+            children: [
+              Container(
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12)
+                ),
+                padding: const EdgeInsets.all(12),
+                child: const Icon(
+                  Icons.close_rounded,
+                  color: Colors.black54,
+                ),
+              ),
+              Positioned.fill(child: Material(
+                color: Colors.transparent,
+                child: InkWell(
+                  onTap: () {
+                    _updateWidget();
+                  },
+                ),
+              ))
+            ],
+          ),
+        )
+      ],
+    );
+  }
+
+  Widget _renderWidget() {
+    return _widgetId == 1 ? _searchIcon() : _textField();
+  }
+
+  void _updateWidget() {
+    setState(() {
+      _widgetId = _widgetId == 1 ? 2 : 1;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    final ThemeData theme = Theme.of(context);
     return Container(
+      height: 60,
       color: Colors.grey,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 0),
-        child: Row(
-          children: <Widget>[
-            SizedBox(
-              height: 56.0,
-              width: 56.0,
-              child: Material(
-                type: MaterialType.transparency,
-                child: InkWell(
-                  child: Icon(
-                    Icons.arrow_downward_rounded,
-                    color: theme.textTheme.caption!.color,
+      child: Stack(
+        children: [
+          Align(
+            alignment: Alignment.centerLeft,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(12),
+              child: Stack(
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12)
+                    ),
+                    padding: const EdgeInsets.all(12),
+                    child: const Icon(
+                      Icons.keyboard_arrow_down_rounded,
+                      color: Colors.black54,
+                    ),
                   ),
-                  onTap: () {
-                    onClose();
-                  },
-                ),
+                  Positioned.fill(child: Material(
+                    color: Colors.transparent,
+                    child: InkWell(
+                      onTap: () {
+                        widget.onClose();
+                      },
+                    ),
+                  ))
+                ],
               ),
-            )
-          ],
-        ),
+            ),
+          ),
+          Align(
+            alignment: Alignment.center,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(12),
+              child: Stack(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(12),
+                    child: Wrap(
+                      crossAxisAlignment: WrapCrossAlignment.center,
+                      children: [
+                        Text('TEST',
+                          style: const TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black54
+                          ),),
+                        const Icon(Icons.keyboard_arrow_down_rounded, size: 20, color: Colors.black54,)
+                      ],
+                    ),
+                  ),
+                  Positioned.fill(child: Material(
+                    color: Colors.transparent,
+                    child: InkWell(
+                      onTap: () {},
+                    ),
+                  ))
+                ],
+              ),
+            ),
+          ),
+          AnimatedSwitcher(
+            duration: const Duration(milliseconds: 100),
+            transitionBuilder: (Widget child, Animation<double> animation) {
+              return ScaleTransition(scale: animation, child: child);
+            },
+            child: _renderWidget(),
+          )
+        ],
       ),
     );
   }
