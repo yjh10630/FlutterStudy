@@ -1,0 +1,54 @@
+[
+  {
+    "category": "group",
+    "title": "서운동장 농구한겜?",
+    "detail": "서운동장 농구한겜?서운동장 농구한겜?",
+    "writeUserInfo" : {
+      "userImg": "https://picsum.photos/id/1005/200/300",
+      "userName": "인천남"
+    },
+    "reviewCount": "11",
+    "createTime": "20220812133000",
+    "isPick": false,
+    "pickCount": "20",
+    "viewCount": "22"
+  },
+  {
+    "category": "group",
+    "title": "덕산고 공원 ㄱ ",
+    "detail": "오늘 밤 8시 5:5 ㄱ ㄱ ",
+    "writeUserInfo" : {
+      "userImg": "https://picsum.photos/id/1010/200/300",
+      "userName": "나그네"
+    },
+    "reviewCount": "11",
+    "photo": [
+      "https://picsum.photos/200",
+      "https://source.unsplash.com/random"
+    ],
+    "createTime": "20220712133020",
+    "isPick": false,
+    "pickCount": "1",
+    "viewCount": "22"
+  },
+  {
+    "category": "group",
+    "title": "혹시 3:3 하실분 ? ",
+    "detail": "혹시 3:3 하실분 ? 혹시 3:3 하실분 ? 혹시 3:3 하실분 ? 혹시 3:3 하실분 ? 혹시 3:3 하실분 ? 혹시 3:3 하실분 ? 혹시 3:3 하실분 ? 혹시 3:3 하실분 ? 혹시 3:3 하실분 ? 혹시 3:3 하실분 ? 혹시 3:3 하실분 ? 혹시 3:3 하실분 ? 혹시 3:3 하실분 ? 혹시 3:3 하실분 ? 혹시 3:3 하실분 ? 혹시 3:3 하실분 ? ",
+    "writeUserInfo" : {
+      "userImg": "https://picsum.photos/id/1011/200/300",
+      "userName": "보트타는솨람"
+    },
+    "reviewCount": "11",
+    "photo": [
+      "https://picsum.photos/200",
+      "https://source.unsplash.com/random",
+      "https://picsum.photos/200",
+      "https://source.unsplash.com/random"
+    ],
+    "createTime": "20220512133000",
+    "isPick": false,
+    "pickCount": "1",
+    "viewCount": "22"
+  }
+]

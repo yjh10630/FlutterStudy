@@ -74,6 +74,13 @@ flutter:
     - localdata/search/seoul.json
     - localdata/board/club_board.json
     - localdata/board/board_comment.json
+    - localdata/board/common_board_simple.json
+    - localdata/board/common_board_recruitment.json
+    - localdata/board/common_board_recommendation.json
+    - localdata/board/common_board_group.json
+    - localdata/board/common_board_question.json
+    - localdata/board/common_board_guest.json
+    - localdata/board/common_board_all.json
 
   # To add assets to your application, add an assets section, like this:
   # assets:

@@ -1,3 +1,4 @@
+import 'package:animations/animations.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -206,6 +207,26 @@ class _BoardItemWidgetState extends State<BoardItemWidget> {
   }
 }
 
+class BoardEmptyWidget extends StatelessWidget {
+  const BoardEmptyWidget({Key? key}): super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.only(top: 48),
+      child: Align(
+        alignment: Alignment.topCenter,
+        child: Text(
+          '아직 게시글이 없습니다',
+          style: TextStyle(
+              fontSize: 16,
+              color: Colors.white.withOpacity(0.5)
+          ),
+        ),
+      ),
+    );
+  }
+}
+
 class PhotoList extends StatelessWidget {
   const PhotoList({Key? key, this.imgs}): super(key: key);
 
@@ -264,6 +285,32 @@ class PhotoList extends StatelessWidget {
             const SizedBox(height: 12.0,)
           ]
       ),
+    );
+  }
+}
+
+class OpenContainerWrapper extends StatelessWidget {
+  const OpenContainerWrapper({super.key,
+    required this.closedBuilder,
+    required this.transitionType,
+    required this.widget,
+  });
+
+  final CloseContainerBuilder closedBuilder;
+  final ContainerTransitionType transitionType;
+  final Widget widget;
+
+  @override
+  Widget build(BuildContext context) {
+    return OpenContainer<bool>(
+      transitionType: transitionType,
+      openBuilder: (BuildContext context, VoidCallback _) {
+        return widget;
+      },
+      tappable: false,
+      closedElevation: 0.0,
+      openElevation: 0.0,
+      closedBuilder: closedBuilder,
     );
   }
 }

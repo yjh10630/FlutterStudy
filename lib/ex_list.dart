@@ -33,8 +33,8 @@ class _ListExampleState extends State<ListExample> {
       "Item 55",
       "Item 66",
     ];
-    //return await Future.delayed(Duration(seconds: 3), () => newItem);
-    return await Future.value(newItem);
+    return await Future.delayed(Duration(seconds: 1), () => newItem);
+    //return await Future.value(newItem);
   }
 
   void _diffListUpdate(Future<List<String>> data) {
@@ -88,28 +88,67 @@ class _ListExampleState extends State<ListExample> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: AnimatedList(
-            key: _key,
-            initialItemCount: 0,
-            itemBuilder: (context, index, animation) {
-              return FadeTransition(
-                key: UniqueKey(),
-                opacity: animation,
-                child: Card(
-                  margin: const EdgeInsets.all(10),
-                  elevation: 10,
-                  color: Colors.orange,
-                  child: ListTile(
-                    contentPadding: const EdgeInsets.all(15),
-                    title: Text(_items[index], style: const TextStyle(fontSize: 24)),
-                    trailing: IconButton(
-                      icon: const Icon(Icons.delete),
-                      onPressed: () => _removeItem(index),
-                    ),
-                  ),
-                ),
-              );
-            }
+        child: Stack(
+          children: [
+            AnimatedList(
+                key: _key,
+                initialItemCount: 0,
+                itemBuilder: (context, index, animation) {
+                  if (index == 0) {
+                    return FadeTransition(
+                      key: UniqueKey(),
+                      opacity: animation,
+                      child: Card(
+                        margin: const EdgeInsets.all(10),
+                        elevation: 10,
+                        color: Colors.orange,
+                        child: ListTile(
+                          contentPadding: const EdgeInsets.all(15),
+                          title: Text('나는 고정임', style: const TextStyle(fontSize: 24)),
+                          trailing: IconButton(
+                            icon: const Icon(Icons.delete),
+                            onPressed: () => _removeItem(index),
+                          ),
+                        ),
+                      ),
+                    );
+                  } else {
+                    return FadeTransition(
+                      key: UniqueKey(),
+                      opacity: animation,
+                      child: Card(
+                        margin: const EdgeInsets.all(10),
+                        elevation: 10,
+                        color: Colors.orange,
+                        child: ListTile(
+                          contentPadding: const EdgeInsets.all(15),
+                          title: Text(_items[index-1], style: const TextStyle(fontSize: 24)),
+                          trailing: IconButton(
+                            icon: const Icon(Icons.delete),
+                            onPressed: () => _removeItem(index-1),
+                          ),
+                        ),
+                      ),
+                    );
+                  }
+                }
+            ),
+            ElevatedButton(
+              onPressed: () {
+                var newItem = [
+                  "Item 88",
+                  "Item 11",
+                  "Item 22",
+                  "Item 23",
+                  "Item 55",
+                  "Item 66",
+                ];
+                newItem.shuffle();
+                _diffListUpdate(Future.value(newItem));
+              },
+              child: Text('셔플'),
+            ),
+          ],
         )
       ),
     );

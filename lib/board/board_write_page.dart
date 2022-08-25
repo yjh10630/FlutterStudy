@@ -6,6 +6,8 @@ import 'package:image_picker/image_picker.dart';
 import 'package:study_flutter/dialog/common_dialog.dart';
 import 'package:study_flutter/dialog/selector_dialog.dart';
 
+import '../model/response_common_board_info.dart';
+import '../model/response_common_board_info.dart';
 import '../utils/color_palette.dart';
 
 class BoardWritePage extends StatefulWidget {
@@ -20,13 +22,17 @@ class _BoardWritePageState extends State<BoardWritePage> {
   final _editTextFormKey = GlobalKey<FormState>();
   List<XFile> upLoadImages = [];
   final int maxImgCount = 10;
-  final List<String> _clubCategory = ['공지사항', '정기모임', '교류전참가', '벙개모임', '그냥'];
-  final List<String> _commonCategory = ['클럽모집', '농구장 추천', '질문있어요', '그냥', '게스트모집'];
-  String whiteCategory = '';
+  final List<String> _boardCategory = [];
+  String writeCategory = '';
 
   @override
   void initState() {
     super.initState();
+    if (widget.pageTitle.contains('전체')) {
+      comBoardCategory.forEach((key, value) { _boardCategory.add(value);});
+    } else {
+      clubCategory.forEach((key, value) { _boardCategory.add(value);});
+    }
   }
 
   @override
@@ -62,18 +68,18 @@ class _BoardWritePageState extends State<BoardWritePage> {
             onPressed: () {
               if (_editTextFormKey.currentState?.validate() == true) {
 
-                if (whiteCategory.isEmpty) {
+                if (writeCategory.isEmpty) {
                   categorySelect(
                       context,
-                      _clubCategory.indexOf(whiteCategory),
+                      _boardCategory.indexOf(writeCategory),
                           (index) {
                         setState(() {
-                          whiteCategory = _clubCategory[index];
+                          writeCategory = _boardCategory[index];
                           Navigator.pop(context);
                         });
                       },
                       '주제를 선택해 주세요.',
-                      _clubCategory
+                      _boardCategory
                   );
                   return;
                 }
@@ -112,7 +118,7 @@ class _BoardWritePageState extends State<BoardWritePage> {
                     Expanded(
                         child: Padding(
                           padding: const EdgeInsets.only(left: 12, right: 12),
-                          child: Text(whiteCategory.isEmpty ? '주제를 선택해 주세요.' : whiteCategory,
+                          child: Text(writeCategory.isEmpty ? '주제를 선택해 주세요.' : writeCategory,
                             overflow: TextOverflow.ellipsis,
                             maxLines: 1,
                             style: TextStyle(
@@ -125,7 +131,7 @@ class _BoardWritePageState extends State<BoardWritePage> {
                     ),
                     const Padding(
                         padding: EdgeInsets.only(right: 12, top: 10, bottom: 10),
-                        child: Icon(Icons.keyboard_arrow_up_rounded, color: Colors.white70)
+                        child: Icon(Icons.keyboard_arrow_down_rounded, color: Colors.white70)
                     )
                   ],
                 ),
@@ -135,15 +141,15 @@ class _BoardWritePageState extends State<BoardWritePage> {
                       onTap: () {
                         categorySelect(
                           context,
-                          _clubCategory.indexOf(whiteCategory),
+                            _boardCategory.indexOf(writeCategory),
                           (index) {
                             setState(() {
-                              whiteCategory = _clubCategory[index];
+                              writeCategory = _boardCategory[index];
                               Navigator.pop(context);
                             });
                           },
                           '주제를 선택해 주세요.',
-                          _clubCategory
+                            _boardCategory
                         );
                       }
                   ),

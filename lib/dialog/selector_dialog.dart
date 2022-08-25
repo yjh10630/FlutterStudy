@@ -34,22 +34,25 @@ class SelectorBottomSheet extends StatelessWidget {
                 borderRadius: BorderRadius.all(Radius.circular(15.0))
             ),
           ),
-          Container(
-              margin: const EdgeInsets.only(top: 24),
-              width: double.infinity,
-              child: Text(
-                title,
-                style: const TextStyle(
-                    fontSize: 22,
-                    color: Palette.colorPrimaryText,
-                    fontWeight: FontWeight.bold
-                ),
-              )
+          Visibility(
+            visible: title.isNotEmpty,
+            child: Container(
+                margin: const EdgeInsets.only(top: 24),
+                width: double.infinity,
+                child: Text(
+                  title,
+                  style: const TextStyle(
+                      fontSize: 22,
+                      color: Palette.colorPrimaryText,
+                      fontWeight: FontWeight.bold
+                  ),
+                )
+            ),
           ),
           Expanded(
             child: CupertinoPicker(
               magnification: 1.22,
-              squeeze: 1.2,
+              squeeze: 1.0,
               useMagnifier: true,
               itemExtent: 32.0,
               scrollController: FixedExtentScrollController(initialItem: initialIndex),
@@ -61,6 +64,9 @@ class SelectorBottomSheet extends StatelessWidget {
                 return Center(
                   child: Text(
                     list[index],
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
                   ),
                 );
               }),

@@ -4,11 +4,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:image_picker/image_picker.dart';
+import 'main/main_page2.dart';
 import 'model/my_page_dataset.dart';
 import 'package:flutter/foundation.dart';
 
 import 'dialog/common_dialog.dart';
-import 'main_page.dart';
+import 'main/main_page.dart';
 import 'utils/color_palette.dart';
 
 class MyPage extends StatefulWidget {
@@ -77,7 +78,8 @@ class _MyPageState extends State<MyPage> {
                           );
                           Fluttertoast.showToast(msg: jsonEncode(data));
                           Navigator.pop(context);
-                          Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => MainPage()), (route) => false);
+                          //Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => MainPage()), (route) => false);
+                          Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => MainPage2()), (route) => false);
                         },
                             () {
                           Navigator.pop(context);
@@ -480,7 +482,8 @@ class _SimpleTxtBtn extends StatelessWidget {
       onPressed: callback,
       //todo 테스트
       onLongPress: () {
-        Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => MainPage()), (route) => false);
+        //Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => MainPage()), (route) => false);
+        Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => const MainPage2()), (route) => false);
       },
       child: Text(
         name,

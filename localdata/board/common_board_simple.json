@@ -1,0 +1,35 @@
+[
+  {
+    "category": "simple",
+    "title": "여기 농구장 아직도 있는지 가보신분 ?? ",
+    "detail": "농구장 이써여 ? ",
+    "writeUserInfo" : {
+      "userImg": "https://picsum.photos/id/1012/200/300",
+      "userName": "포워드남자"
+    },
+    "reviewCount": "12",
+    "createTime": "20220812133000",
+    "isPick": true,
+    "pickCount": "10",
+    "viewCount": "12"
+  },
+  {
+    "category": "simple",
+    "title": "여기 농구장 아직도 있는지 가보신분 ?? ",
+    "detail": "농구장 이써여 ? ",
+    "writeUserInfo" : {
+      "userImg": "https://picsum.photos/id/1011/200/300",
+      "userName": "보트타는솨람"
+    },
+    "reviewCount": "11",
+    "photo": [
+      "https://picsum.photos/id/104/500/600",
+      "https://picsum.photos/id/108/900/400",
+      "https://picsum.photos/id/100/900/900"
+    ],
+    "createTime": "20220716133000",
+    "isPick": false,
+    "pickCount": "0",
+    "viewCount": "22"
+  }
+]

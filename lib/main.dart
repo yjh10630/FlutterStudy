@@ -4,7 +4,8 @@ import 'package:study_flutter/utils/constants.dart';
 
 import 'login/init_login_page.dart';
 import 'login/login_page.dart';
-import 'main_page.dart';
+import 'main/main_page.dart';
+import 'main/main_page2.dart';
 
 //https://dev-yakuza.posstree.com/ko/flutter/splash-screen/
 Future<void> main() async {
@@ -97,7 +98,8 @@ class _NavigationNextScreenState extends State<NavigationNextScreen> {
     if (widget.screenType == ScreenType.initLogin) {
       screenView = const LoginPage(pageIndex: 1,);
     } else {
-      screenView = MainPage();
+      //screenView = MainPage();
+      screenView = const MainPage2();
     }
 
     super.initState();

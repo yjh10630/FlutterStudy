@@ -1,0 +1,16 @@
+[
+  {
+    "category": "recruitment",
+    "title": "모집중입니다.",
+    "detail": "누구든 오셔서 즐거운 게임 해요",
+    "writeUserInfo" : {
+      "userImg": "https://picsum.photos/id/1005/200/300",
+      "userName": "인천남"
+    },
+    "reviewCount": "11",
+    "createTime": "20220812133000",
+    "isPick": false,
+    "pickCount": "20",
+    "viewCount": "22"
+  }
+]

@@ -97,7 +97,7 @@ class _BoardPageState extends State<BoardPage> {
         case ConnectionState.done:
           if (snapshot.hasData) {
             if (snapshot.requireData.isEmpty) {
-              childWidget = const _BoardEmptyWidget(key: ValueKey(1));
+              childWidget = const BoardEmptyWidget(key: ValueKey(1));
             } else {
               childWidget = ListView.builder(
                   key: const ValueKey(2),
@@ -106,7 +106,7 @@ class _BoardPageState extends State<BoardPage> {
                   itemBuilder: (context, index) {
                     return Container(
                       color: Colors.black.withOpacity(0.8),
-                      child: _OpenContainerWrapper(
+                      child: OpenContainerWrapper(
                           transitionType: ContainerTransitionType.fadeThrough,
                           closedBuilder: (context, openContainer) {
                             return BoardItemWidget(
@@ -142,49 +142,3 @@ class _BoardPageState extends State<BoardPage> {
   );
 }
 
-class _BoardEmptyWidget extends StatelessWidget {
-  const _BoardEmptyWidget({Key? key}): super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: Colors.black.withOpacity(0.8),
-      padding: const EdgeInsets.only(top: 48),
-      child: Align(
-        alignment: Alignment.topCenter,
-        child: Text(
-          '아직 게시글이 없습니다',
-          style: TextStyle(
-            fontSize: 16,
-            color: Colors.white.withOpacity(0.5)
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class _OpenContainerWrapper extends StatelessWidget {
-  const _OpenContainerWrapper({
-    required this.closedBuilder,
-    required this.transitionType,
-    required this.widget,
-  });
-
-  final CloseContainerBuilder closedBuilder;
-  final ContainerTransitionType transitionType;
-  final Widget widget;
-
-  @override
-  Widget build(BuildContext context) {
-    return OpenContainer<bool>(
-      transitionType: transitionType,
-      openBuilder: (BuildContext context, VoidCallback _) {
-        return widget;
-      },
-      tappable: false,
-      closedElevation: 0.0,
-      openElevation: 0.0,
-      closedBuilder: closedBuilder,
-    );
-  }
-}

@@ -1,6 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+const Map<String, String> clubCategory = <String, String>{
+  'notify': '공지사항',
+  'simple': '그냥',
+  'regularMeeting': '정기모임',
+  'freeMeeting': '벙개모임',
+  'match': '교류전'
+};
+
+const Map<String, String> comBoardCategory = <String, String>{
+  'recruitment': '클럽모집',
+  'recommendation': '농구장 추천',
+  'group': '같이해요',
+  'question': '질문있어요',
+  'simple': '그냥',
+  'guest': '게스트모집'
+};
+
 class ResponseBoardInfo {
   String? category;
   String? title;
@@ -67,31 +84,40 @@ class ResponseBoardInfo {
       outputDate = yearDiff > 365 ? DateFormat('yyyy.MM.dd').format(inputDate) : DateFormat('MM.dd').format(inputDate);
     }
     return date;
-
   }
 
   String convertCategoryToTag() {
-    switch(category) {
-      case 'notify':
-        return '공지사항';
-      case 'board':
-        return '그냥';
-      case 'group':
-        return '같이해요';
-      default: return '';
+    String txt = '';
+    comBoardCategory.forEach((key, value) {
+      if (key == category) txt = value;
+    });
+
+    if (txt.isEmpty) {
+      clubCategory.forEach((key, value) {
+        if (key == category) txt = value;
+      });
     }
+    return txt;
   }
 
   Color tagColor() {
+    Color color;
     switch(category) {
-      case 'notify':
-        return Colors.redAccent;
-      case 'board':
-        return Colors.white.withOpacity(0.5);
-      case 'group':
-        return Colors.amberAccent;
-      default: return Colors.transparent;
+      case 'notify': color = Colors.redAccent;
+      break;
+      case 'regularMeeting': color = Colors.yellowAccent;
+      break;
+      case 'freeMeeting': color = Colors.greenAccent;
+      break;
+      case 'match': color = Colors.cyan;
+      break;
+      case 'recruitment': color = Colors.purpleAccent;
+      break;
+      case 'group': color = Colors.limeAccent;
+      break;
+      default: color = Colors.white;
     }
+    return color;
   }
 
   ResponseBoardInfo.fromJson(Map<String, dynamic> json) {
