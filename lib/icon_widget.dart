@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class IconWidget extends StatelessWidget {
   const IconWidget({Key? key, required this.icon, required this.onTap}): super(key: key);
-  final Icon icon;
+  final Widget icon;
   final VoidCallback onTap;
 
   @override
@@ -13,7 +13,7 @@ class IconWidget extends StatelessWidget {
       child: Stack (
         children: [
           Padding(
-            padding: const EdgeInsets.all(12),
+            padding: const EdgeInsets.only(left: 10, right: 10),
             child: Align(
                 alignment: Alignment.center,
                 child: icon

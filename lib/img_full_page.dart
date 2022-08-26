@@ -2,18 +2,18 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 //todo Indicator 만들어야함.
-class BoardImgFullPage extends StatefulWidget {
-  const BoardImgFullPage({
+class ImgFullPage extends StatefulWidget {
+  const ImgFullPage({
     Key? key, required this.imgs, required this.initIndex
   }): super(key: key);
 
   final List<String> imgs;
   final int initIndex;
   @override
-  _BoardImgFullPageState createState() => _BoardImgFullPageState();
+  _ImgFullPageState createState() => _ImgFullPageState();
 }
 
-class _BoardImgFullPageState extends State<BoardImgFullPage> {
+class _ImgFullPageState extends State<ImgFullPage> {
 
   late PageController _pageController;
 

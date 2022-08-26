@@ -7,7 +7,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import '../model/response_board_comment.dart';
 import '../model/response_common_board_info.dart';
 import '../utils/color_palette.dart';
-import 'board_img_full_page.dart';
+import '../img_full_page.dart';
 import 'board_ui.dart';
 
 class BoardReadPage extends StatefulWidget {
@@ -189,7 +189,7 @@ class _BoardReadPageState extends State<BoardReadPage> {
                                                   );*/
                                                   Navigator.push(
                                                       context,
-                                                      MaterialPageRoute(builder: (context) => BoardImgFullPage(imgs: widget.data.photo!,
+                                                      MaterialPageRoute(builder: (context) => ImgFullPage(imgs: widget.data.photo!,
                                                         initIndex: index,))
                                                   );
                                                 },

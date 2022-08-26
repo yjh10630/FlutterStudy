@@ -7,8 +7,8 @@ import 'package:study_flutter/club/club_main2.dart';
 import 'package:study_flutter/utils/color_palette.dart';
 
 import 'package:animations/animations.dart';
-import 'club/test.dart';
-import 'model/response_search_club_info.dart';
+import '../club/test.dart';
+import '../model/response_search_club_info.dart';
 
 typedef BottomSheetSelectCallback = void Function(int);
 

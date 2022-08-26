@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:study_flutter/mypage/my_page_menu.dart';
 
 import '../board/board_read_page.dart';
 import '../board/board_ui.dart';
@@ -12,7 +13,7 @@ import '../board/board_write_page.dart';
 import '../dialog/selector_dialog.dart';
 import '../icon_widget.dart';
 import '../model/response_common_board_info.dart';
-import '../search_page.dart';
+import '../search/search_page.dart';
 import '../utils/color_palette.dart';
 
 class MainPage2 extends StatefulWidget {
@@ -231,7 +232,45 @@ class _MainPage2State extends State<MainPage2> {
             );
           },),
           IconWidget(icon: const Icon(Icons.notifications_rounded, color: Colors.white,), onTap: () {}),
-          IconWidget(icon: const Icon(Icons.more_vert_rounded, color: Colors.white,), onTap: () {}),
+          ClipRRect(
+            borderRadius: BorderRadius.circular(12),
+            child: Stack (
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 10, right: 10),
+                  child: Center(
+                    child: CircleAvatar(
+                      backgroundColor: Colors.white24,
+                      child: ClipOval(
+                        child: Image.network(
+                          '',
+                          fit: BoxFit.cover,
+                          width: 40,
+                          height: 40,
+                          errorBuilder: (context, error, stackTrace) {
+                            return const Center(child: Icon(Icons.person, color: Colors.white,),);
+                          },
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                Positioned.fill(
+                    child: Material(
+                      color: Colors.transparent,
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => const MyPageMenu())
+                          );
+                        },
+                      ),
+                    )
+                )
+              ],
+            ),
+          ),
         ],
       ),
       body: Container(

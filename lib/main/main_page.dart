@@ -1,6 +1,6 @@
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
-import 'package:study_flutter/search_page.dart';
+import 'package:study_flutter/search/search_page.dart';
 import '../board/board_write_page.dart';
 import '../ex_list.dart';
 import '../ex_list2.dart';

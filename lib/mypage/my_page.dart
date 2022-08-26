@@ -4,13 +4,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:image_picker/image_picker.dart';
-import 'main/main_page2.dart';
-import 'model/my_page_dataset.dart';
+import '../main/main_page2.dart';
+import '../model/my_page_dataset.dart';
 import 'package:flutter/foundation.dart';
 
-import 'dialog/common_dialog.dart';
-import 'main/main_page.dart';
-import 'utils/color_palette.dart';
+import '../dialog/common_dialog.dart';
+import '../main/main_page.dart';
+import '../utils/color_palette.dart';
 
 class MyPage extends StatefulWidget {
   const MyPage({Key? key}) : super(key: key);

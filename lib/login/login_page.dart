@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../dialog/common_dialog.dart';
-import '../my_page.dart';
+import '../mypage/my_page.dart';
 import '../utils/color_palette.dart';
 
 const _pageDuration = Duration(milliseconds: 200);
