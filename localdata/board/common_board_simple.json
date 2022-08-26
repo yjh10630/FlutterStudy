@@ -8,7 +8,7 @@
       "userName": "포워드남자"
     },
     "reviewCount": "12",
-    "createTime": "20220812133000",
+    "createTime": "20220812T133000",
     "isPick": true,
     "pickCount": "10",
     "viewCount": "12"
@@ -27,7 +27,7 @@
       "https://picsum.photos/id/108/900/400",
       "https://picsum.photos/id/100/900/900"
     ],
-    "createTime": "20220716133000",
+    "createTime": "20220716T133000",
     "isPick": false,
     "pickCount": "0",
     "viewCount": "22"

@@ -8,7 +8,7 @@
       "userName": "모임장이요"
     },
     "reviewCount": "11",
-    "createTime": "20220711133000",
+    "createTime": "20220711T133000",
     "isPick": false,
     "pickCount": "20",
     "viewCount": "22"
@@ -25,7 +25,7 @@
     "photo": [
       "https://picsum.photos/200"
     ],
-    "createTime": "20220712133000",
+    "createTime": "20220712T133000",
     "isPick": false,
     "pickCount": "1",
     "viewCount": "22"
@@ -43,7 +43,7 @@
       "https://source.unsplash.com/random",
       "https://source.unsplash.com/random"
     ],
-    "createTime": "20220713133000",
+    "createTime": "20220713T133000",
     "isPick": false,
     "pickCount": "5",
     "viewCount": "22"
@@ -62,7 +62,7 @@
       "https://source.unsplash.com/random",
       "https://source.unsplash.com/random"
     ],
-    "createTime": "20220716133000",
+    "createTime": "20220716T133000",
     "isPick": false,
     "pickCount": "0",
     "viewCount": "22"
@@ -81,7 +81,7 @@
       "https://source.unsplash.com/random",
       "https://source.unsplash.com/random"
     ],
-    "createTime": "20220718133000",
+    "createTime": "20220718T133000",
     "isPick": false,
     "pickCount": "0",
     "viewCount": "22"
@@ -100,7 +100,7 @@
       "https://source.unsplash.com/random",
       "https://source.unsplash.com/random"
     ],
-    "createTime": "20220720133000",
+    "createTime": "20220720T133000",
     "isPick": false,
     "pickCount": "0",
     "viewCount": "22"
@@ -119,7 +119,7 @@
       "https://source.unsplash.com/random",
       "https://source.unsplash.com/random"
     ],
-    "createTime": "20220722133000",
+    "createTime": "20220722T133000",
     "isPick": false,
     "pickCount": "0",
     "viewCount": "22"

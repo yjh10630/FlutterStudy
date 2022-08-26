@@ -121,7 +121,7 @@ class _BoardItemWidgetState extends State<BoardItemWidget> {
                         color: Colors.white.withOpacity(0.5)
                     ),),
                   Expanded(child: Container()),
-                  Text(widget.data.createTime ?? '',
+                  Text(widget.data.convertDate() ?? '',
                     style: TextStyle(
                         fontSize: 12,
                         color: Colors.white.withOpacity(0.5)

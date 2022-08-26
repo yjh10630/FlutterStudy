@@ -8,7 +8,7 @@
       "userName": "인천남"
     },
     "reviewCount": "11",
-    "createTime": "20220812133000",
+    "createTime": "20220812T133000",
     "isPick": false,
     "pickCount": "20",
     "viewCount": "22"
@@ -26,7 +26,7 @@
       "https://picsum.photos/200",
       "https://source.unsplash.com/random"
     ],
-    "createTime": "20220712133020",
+    "createTime": "20220712T133020",
     "isPick": false,
     "pickCount": "1",
     "viewCount": "22"
@@ -46,7 +46,7 @@
       "https://picsum.photos/200",
       "https://source.unsplash.com/random"
     ],
-    "createTime": "20220512133000",
+    "createTime": "20220512T133000",
     "isPick": false,
     "pickCount": "1",
     "viewCount": "22"

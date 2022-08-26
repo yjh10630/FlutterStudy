@@ -56,9 +56,8 @@ class ResponseBoardInfo {
     this.viewCount
   });
 
-  String convertDate(String date) {
-
-    var inputDate = DateFormat('yyyyMMddHHmmss').parse(date);
+  String convertDate() {
+    var inputDate = DateTime.parse(createTime ?? '');
     var outputDate = '';
 
     var diffDay = DateTime(
@@ -75,7 +74,9 @@ class ResponseBoardInfo {
     if (diffDay == 0) {
       // 시간 노출
       var time = DateTime(DateTime.now().hour).difference(DateTime(inputDate.hour)).inHours;
-      outputDate = time == 0 ? '방금' : '${time}시간 전';
+      //todo 왜 DateTime.now().hour 가 0이냐 ?
+      //outputDate = time == 0 ? '방금' : '${time}시간 전';
+      outputDate = '오늘';
     } else if (diffDay > 0 && diffDay < 6) {
       outputDate = '${diffDay}일 전';
     } else {
@@ -83,7 +84,8 @@ class ResponseBoardInfo {
       var yearDiff = DateTime(DateTime.now().year).difference(DateTime(inputDate.year)).inDays;
       outputDate = yearDiff > 365 ? DateFormat('yyyy.MM.dd').format(inputDate) : DateFormat('MM.dd').format(inputDate);
     }
-    return date;
+
+    return outputDate ?? '';
   }
 
   String convertCategoryToTag() {

@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:intl/intl.dart';
 import 'package:study_flutter/mypage/my_page_menu.dart';
 
 import '../board/board_read_page.dart';
@@ -274,8 +275,8 @@ class _MainPage2State extends State<MainPage2> {
         ],
       ),
       body: Container(
-        color: Colors.black.withOpacity(0.8),
-        child: _boardListBuilder()
+          color: Colors.black.withOpacity(0.8),
+          child: _boardListBuilder()
       ),
     );
   }
