@@ -14,6 +14,7 @@ import '../board/board_write_page.dart';
 import '../dialog/selector_dialog.dart';
 import '../icon_widget.dart';
 import '../model/response_common_board_info.dart';
+import '../search/search_menu.dart';
 import '../search/search_page.dart';
 import '../utils/color_palette.dart';
 
@@ -227,10 +228,11 @@ class _MainPage2State extends State<MainPage2> {
         ),
         actions: [
           IconWidget(icon: const Icon(Icons.search_rounded, color: Colors.white), onTap: () {
-            Navigator.push(
+            /*Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => const SearchPage())
-            );
+            );*/
+            Navigator.of(context).push(FullScreenModal());
           },),
           IconWidget(icon: const Icon(Icons.notifications_rounded, color: Colors.white,), onTap: () {}),
           ClipRRect(
