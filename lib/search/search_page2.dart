@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
+import '../dialog/selector_dialog.dart';
 import '../icon_widget.dart';
+import '../model/response_search_club_info.dart';
+import '../utils/color_palette.dart';
 
 class SearchPage2 extends StatefulWidget {
   const SearchPage2({Key? key}): super(key: key);
@@ -12,6 +15,9 @@ class SearchPage2 extends StatefulWidget {
 class _SearchPage2State extends State<SearchPage2> {
 
   late TextEditingController _searchEditController;
+  List<String> cateList = ["클럽", "게시판"];
+  String searchCategory = "클럽";
+  late Future<List<ResponseSearchClubInfo>> _items;
 
   @override
   void initState() {
@@ -23,6 +29,23 @@ class _SearchPage2State extends State<SearchPage2> {
   void dispose() {
     _searchEditController.dispose();
     super.dispose();
+  }
+
+  Future<void> categorySelect (
+      BuildContext context,
+      int initialIndex,
+      SelectorBottomSheetCallback callback,
+      String title,
+      List<String> list
+      ) {
+    return showModalBottomSheet(
+        isScrollControlled: false,
+        shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(20), topRight: Radius.circular(20))),
+        backgroundColor: Palette.windowBlackBackground,
+        context: context,
+        builder: (context) => SelectorBottomSheet(initialIndex: initialIndex, selectCallback: callback, title: title, list: list));
   }
 
   @override
@@ -79,7 +102,7 @@ class _SearchPage2State extends State<SearchPage2> {
                     child: Wrap(
                       crossAxisAlignment: WrapCrossAlignment.center,
                       children: [
-                        Text('test',
+                        Text(searchCategory,
                           style: const TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
@@ -93,21 +116,14 @@ class _SearchPage2State extends State<SearchPage2> {
                     color: Colors.transparent,
                     child: InkWell(
                       onTap: () {
-                        /*var cateList = comBoardCategory.values.toList();
-                          cateList.insert(0, '전체');
-                          categorySelect(
-                              context,
-                              cateList.indexOf(_boardCategory),
-                                  (index) {
-                                setState(() {
-                                  _boardCategory = cateList[index];
-                                  _items = _boardFetchData();
-                                  Navigator.pop(context);
-                                });
-                              },
-                              '',
-                              cateList
-                          );*/
+                        categorySelect(context,
+                            cateList.indexOf(searchCategory),
+                                (index) {
+                                  setState(() {
+                                    searchCategory = cateList[index];
+                                    Navigator.pop(context);
+                                  });
+                                }, '검색 카테고리 설정', cateList);
                       },
                     ),
                   ))
@@ -117,6 +133,7 @@ class _SearchPage2State extends State<SearchPage2> {
           )
         ],
       ),
+       body: Container(),
     );
   }
 }
